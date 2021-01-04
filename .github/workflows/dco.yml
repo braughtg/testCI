@@ -3,17 +3,17 @@ on:
   pull_request:
     branches:
     - main
+    types: [opened, edited]
 
 jobs:
-  CheckDCO:
+  DCO-must-be-checked:
     runs-on: ubuntu-latest
     steps:
-    - name: Task List Zero
-      uses: WeeverApps/gha-task-list-zero@v1.0
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: kentaro-m/task-completed-checker-action@v0.1.0
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}":
 
-  farmdata2_prettier:
+  Prettier-must-be-run:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Commit
