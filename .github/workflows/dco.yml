@@ -9,9 +9,8 @@ jobs:
   DCO-must-be-checked:
     runs-on: ubuntu-latest
     steps:
-      - uses: kentaro-m/task-completed-checker-action@v0.1.0
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+    - name: Tack Completed Checker
+      uses: kentaro-m/task-completed-checker-action@v0.1.0
 
   Prettier-must-be-run:
     runs-on: ubuntu-latest
@@ -19,10 +18,10 @@ jobs:
     - name: Checkout Commit
       uses: actions/checkout@v2
       with:
-        # Make sure the actual branch is checked out when running on pull requests
-        ref: ${{ github.head_ref }}
-        # This is important to fetch the changes to the previous commit
-        fetch-depth: 0
+       # Make sure the actual branch is checked out when running on pull requests
+       ref: ${{ github.head_ref }}
+       # This is important to fetch the changes to the previous commit
+       fetch-depth: 0
     - name: Run Prettier
       uses: creyD/prettier_action@v3.1
       with:
