@@ -6,13 +6,15 @@ on:
     types: [opened, edited]
 
 jobs:
-  DCO-must-be-checked:
+  Must-Check-DCO-Statement:
     runs-on: ubuntu-latest
     steps:
     - name: Tack Completed Checker
       uses: kentaro-m/task-completed-checker-action@v0.1.0
-
-  Prettier-must-be-run:
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"  
+        
+  Code-Must-Be-Formatted-By-Prettier:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Commit
@@ -26,7 +28,7 @@ jobs:
       uses: creyD/prettier_action@v3.1
       with:
         # This part is also where you can pass other options, for example:
-        prettier_options: --write **/*.{php,html,js,md}
+        prettier_options: --check **/*.{html,js,md,yml}
         only_changed: true
         dry: true
       env:
