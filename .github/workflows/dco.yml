@@ -3,7 +3,7 @@ on:
   pull_request:
     branches:
     - main
-    types: [opened, edited]
+    types: [opened, edited, synchronize]
 
 jobs:
   Must-Check-DCO-Statement:
