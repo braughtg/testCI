@@ -1,0 +1,12 @@
+name: Check DCO
+on:
+  pull_request:
+    branches:
+      - main   
+jobs:
+  check-dco-box:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: WeeverApps/gha-task-list-zero@v1.0
+
+    
