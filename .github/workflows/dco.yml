@@ -27,6 +27,7 @@ jobs:
     - name: Run Prettier
       uses: creyD/prettier_action@v3.1
       with:
+        prettier_options: **/*.{js,html,css,md}
         only_changed: true
         dry: true
       env:
