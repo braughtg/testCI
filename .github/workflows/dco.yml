@@ -5,14 +5,17 @@ on:
     - main
 
 jobs:
-  farmdata2_pull_request:
+  CheckDCO:
     runs-on: ubuntu-latest
     steps:
-    - name: Check DCO
+    - name: Task List Zero
       uses: WeeverApps/gha-task-list-zero@v1.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  farmdata2_prettier:
+    runs-on: ubuntu-latest
+    steps:
     - name: Checkout Commit
       uses: actions/checkout@v2
       with:
@@ -20,7 +23,6 @@ jobs:
         ref: ${{ github.head_ref }}
         # This is important to fetch the changes to the previous commit
         fetch-depth: 0
-
     - name: Run Prettier
       uses: creyD/prettier_action@v3.1
       with:
