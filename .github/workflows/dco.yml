@@ -27,8 +27,7 @@ jobs:
     - name: Run Prettier
       uses: creyD/prettier_action@v3.1
       with:
-        prettier_options: --check **/*.{js,html,css,md}
+        prettier_options: --write **/*.{js,html,css,md}
         only_changed: true
-        dry: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
